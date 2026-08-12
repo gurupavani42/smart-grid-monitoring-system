@@ -1,0 +1,59 @@
+============================================================
+        SMART GRID MONITORING SYSTEM
+============================================================
+
+Grid Measurement
+------------------------------------------------------------
+Voltage       : 232.50 V
+Current       : 42.30 A
+Frequency     : 50.02 Hz
+Power Factor  : 0.94
+Active Power  : 9.25 kW
+Temperature   : 45.60 °C
+Grid Status   : NORMAL
+
+Grid Measurement
+------------------------------------------------------------
+Voltage       : 238.20 V
+Current       : 55.40 A
+Frequency     : 49.98 Hz
+Power Factor  : 0.91
+Active Power  : 12.00 kW
+Temperature   : 48.20 °C
+Grid Status   : NORMAL
+
+Grid Measurement
+------------------------------------------------------------
+Voltage       : 251.80 V
+Current       : 48.20 A
+Frequency     : 50.10 Hz
+Power Factor  : 0.91
+Active Power  : 11.05 kW
+Temperature   : 52.40 °C
+ALERT: OVERVOLTAGE DETECTED
+Grid Status   : WARNING
+
+Grid Measurement
+------------------------------------------------------------
+Voltage       : 215.50 V
+Current       : 35.60 A
+Frequency     : 49.70 Hz
+Power Factor  : 0.78
+Active Power  : 5.99 kW
+Temperature   : 61.50 °C
+ALERT: UNDERVOLTAGE DETECTED
+ALERT: LOW POWER FACTOR
+Grid Status   : WARNING
+
+Grid Measurement
+------------------------------------------------------------
+Voltage       : 235.20 V
+Current       : 105.50 A
+Frequency     : 50.20 Hz
+Power Factor  : 0.86
+Active Power  : 21.34 kW
+Temperature   : 85.20 °C
+ALERT: OVERCURRENT DETECTED
+ALERT: OVER-FREQUENCY DETECTED
+ALERT: HIGH TEMPERATURE
+Grid Status   : FAULT

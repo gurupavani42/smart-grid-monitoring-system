@@ -1,0 +1,85 @@
+import unittest
+import sys
+import os
+
+sys.path.append(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+)
+
+from src.monitoring import calculate_power
+from src.fault_detection import detect_faults
+
+
+class TestSmartGridMonitoring(unittest.TestCase):
+
+    def test_power_calculation(self):
+
+        power = calculate_power(230, 10, 0.9)
+
+        self.assertAlmostEqual(power, 2.07, places=2)
+
+    def test_normal_condition(self):
+
+        alerts, status = detect_faults(
+            230,
+            40,
+            50,
+            0.95,
+            40
+        )
+
+        self.assertEqual(status, "NORMAL")
+        self.assertEqual(len(alerts), 0)
+
+    def test_overvoltage(self):
+
+        alerts, status = detect_faults(
+            250,
+            40,
+            50,
+            0.95,
+            40
+        )
+
+        self.assertIn("OVERVOLTAGE DETECTED", alerts)
+        self.assertEqual(status, "WARNING")
+
+    def test_undervoltage(self):
+
+        alerts, status = detect_faults(
+            210,
+            40,
+            50,
+            0.95,
+            40
+        )
+
+        self.assertIn("UNDERVOLTAGE DETECTED", alerts)
+
+    def test_overcurrent(self):
+
+        alerts, status = detect_faults(
+            230,
+            110,
+            50,
+            0.95,
+            40
+        )
+
+        self.assertIn("OVERCURRENT DETECTED", alerts)
+
+    def test_low_power_factor(self):
+
+        alerts, status = detect_faults(
+            230,
+            40,
+            50,
+            0.70,
+            40
+        )
+
+        self.assertIn("LOW POWER FACTOR", alerts)
+
+
+if __name__ == "__main__":
+    unittest.main()
